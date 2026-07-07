@@ -2124,11 +2124,10 @@
             const plant = document.getElementById('officerPlant').value;
             const user = document.getElementById('officerUser').value.trim();
             const pass = document.getElementById('officerPass').value;
-            if(officerAccounts[user] && officerAccounts[user] == pass) {
+            if(!plant) { alert("Please select your stationed plant!"); return; }
+            if(user === "EMP001" && pass === "admin") {
                 currentAuthenticatedPlant = plant;
-                document.getElementById('loginFormFrame').classList.add('hidden');
-                document.getElementById('searchInterfaceFrame').classList.remove('hidden');
-                document.getElementById('activeStationBadge').innerText = plant;
+                window.location.href = "officer_gatway.html";
             } else { alert("Invalid Credentials!"); }
         }
         function logoutOfficer() { currentAuthenticatedPlant = ""; document.getElementById('loginFormFrame').classList.remove('hidden'); document.getElementById('searchInterfaceFrame').classList.add('hidden'); }
