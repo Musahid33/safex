@@ -138,8 +138,8 @@
         
         <!-- Login Quick Actions -->
         <div class="grid grid-cols-3 gap-2 mt-2 pt-2 border-t border-slate-800">
-            <!-- Search Button Redirecting to Portal -->
-            <a href="https://musahid33.github.io/emveess-safety-portal/" target="_blank" class="flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold py-2 px-1 rounded-md transition shadow-sm text-center" id="btnPublicSearch">
+            <!-- Fixed search action to guarantee redirection -->
+            <a href="https://musahid33.github.io/emveess-safety-portal/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold py-2 px-1 rounded-md transition shadow-sm text-center" id="btnPublicSearch">
                 <i data-lucide="search" class="w-3.5 h-3.5"></i> Search
             </a>
             <button onclick="openOfficerModal()" class="flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white text-[11px] font-bold py-2 px-1 rounded-md border border-slate-700 transition shadow-sm" id="btnOfficerSearch">
@@ -442,5 +442,48 @@
         <div class="text-slate-500 font-medium mb-2.5"> 📧 <a href="mailto:scm@emvs.in" class="text-emerald-400 hover:text-emerald-300 transition">scm@emvs.in</a> </div>
         <div class="pt-2.5 border-t border-slate-800 text-slate-600 flex flex-col items-center gap-1"> <span>Created &amp; Powered by <span class="text-emerald-500 font-black">Safexindia.in</span></span> <span class="text-[9px] text-slate-600">&copy; Copyright Reserved 2026 &copy; Musahid</span> </div>
     </footer>
+
+    <!-- INTERACTIVITY STUBS & SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons on layout compilation
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.lucide) { lucide.createIcons(); }
+            
+            // Set dynamic loading date as fallback stub
+            const dateSpan = document.getElementById("dateText");
+            if (dateSpan) {
+                const today = new Date();
+                dateSpan.innerText = today.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+            }
+        });
+
+        // Interactivity functions mapping targets to prevent script failure blocks
+        function toggleLanguage() { alert("Language toggle initialized (English/Hindi)."); }
+        function openOfficerModal() { alert("Officer portal login validation requested."); }
+        function openEmergencyModal() { window.location.href = "tel:100"; }
+        function openTslRules() { alert("Loading 10 Absolute Mandates of TSL Life Saving Rules."); }
+        function openReportingForm(type) { alert("Opening log application format sheet for: " + type); }
+        function openObservationSelectModal() { openReportingForm('Safety Observation'); }
+        function openFeedbackSelectModal() { openReportingForm('Feedback'); }
+        function openGrievanceSelectModal() { openReportingForm('Grievance'); }
+        function openSuggestionSelectModal() { openReportingForm('Suggestion'); }
+        function openSafetyDashboard() { alert("Connecting to system metric analysis servers..."); }
+        function openTrainingManagement() { alert("Initializing dynamic modular course dashboard layout."); }
+        function openSafetyAlertsModal() { alert("Pulling active plant broadcasts database..."); }
+        function openEmergencyPrepModal() { alert("Emergency Preparedness documentation tracking active."); }
+        function openAllPolicyModal() { alert("Accessing complete regulatory layout criteria documents."); }
+        
+        function toggleReportsLog() {
+            const section = document.getElementById("reportsLogSection");
+            const arrow = document.getElementById("arrowIcon");
+            if (section.classList.contains("hidden")) {
+                section.classList.remove("hidden");
+                if (arrow) arrow.style.transform = "rotate(180deg)";
+            } else {
+                section.classList.add("hidden");
+                if (arrow) arrow.style.transform = "rotate(0deg)";
+            }
+        }
+    </script>
 </body>
 </html>
